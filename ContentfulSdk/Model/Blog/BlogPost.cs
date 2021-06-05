@@ -16,5 +16,6 @@
         public Person? Author { get; set; } 
 
         public PageBody? Body { get; set; }
+        public string? MarkdownBody { get; set; }
     }
 }

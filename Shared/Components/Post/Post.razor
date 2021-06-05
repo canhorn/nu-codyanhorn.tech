@@ -17,6 +17,11 @@
 
     <RichTextPageContent Body="@Post.Body" />
 
+    @if (Post.MarkdownBody is not null)
+    {
+        <BlazorMarkdown Markdown="@Post.MarkdownBody" />
+    }
+
     @if (Post.Author is not null)
     {
         <AuthorCard Author="@Post.Author" />
