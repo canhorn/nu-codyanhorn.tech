@@ -1,7 +1,8 @@
 :root {
+    --brand-color: purple;
     --color-primary: #26cf19;
     --color-secondary: #26cf19;
-    --color-tertiary: #a606e6;
+    --color-tertiary: var(--brand-color);
     --color-foreground: #000000;
     --color-background: #ffffff;
     --color-muted: #666666;
@@ -237,7 +238,7 @@ img {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     font-weight: var(--font-weight-normal);
-    border: 0.125rem solid var(--color-background);
+    border: 0.25rem solid var(--color-tertiary);
     margin-bottom: 2rem;
 }
 
@@ -245,6 +246,10 @@ img {
         border-color: var(--color-primary);
         color: var(--color-primary);
         box-shadow: none;
+    }
+
+    .--button:visited {
+        color: var(--color-background);
     }
 
     .--button:focus {
