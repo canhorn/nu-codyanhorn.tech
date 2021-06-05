@@ -1,0 +1,11 @@
+@page "/blog/{slug}"
+@inherits PostPageBase
+
+@if (Post is not null)
+{
+    <ContentWrapper>
+        <Post Post="Post" />
+    </ContentWrapper>
+}
+
+
