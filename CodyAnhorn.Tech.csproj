@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
-        <RootNamespace>Blazor.Contentful_.Blog.Starter</RootNamespace>
+        <RootNamespace>CodyAnhorn.Tech</RootNamespace>
         <Nullable>enable</Nullable>
         <UserSecretsId>b85bec14-04a9-4ca6-9673-a8260090ea21</UserSecretsId>
     </PropertyGroup>
@@ -13,6 +13,10 @@
         <PackageReference Include="Markdig" Version="0.24.0" />
 
         <PackageReference Include="EventHorizon.Blazor.DocumentMetadata" Version="0.1.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Shared\Components\SocialLinks\svg\NewFolder\" />
     </ItemGroup>
 
 </Project>

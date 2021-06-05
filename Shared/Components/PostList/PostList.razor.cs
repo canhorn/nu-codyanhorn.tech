@@ -1,8 +1,8 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Shared.Components.PostList
+﻿namespace CodyAnhorn.Tech.Shared.Components.PostList
 {
     using System.Collections.Generic;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Blog;
-    using Blazor.Contentful_.Blog.Starter.Data;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Blog;
+    using CodyAnhorn.Tech.Data;
     using Microsoft.AspNetCore.Components;
 
     public class PostListBase

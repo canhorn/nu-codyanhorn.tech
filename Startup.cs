@@ -1,20 +1,21 @@
-namespace Blazor.Contentful_.Blog.Starter
+namespace CodyAnhorn.Tech
 {
     using System.Collections.Generic;
     using System.Globalization;
-    using Blazor.Contentful_.Blog.Starter.CacheBusting.Api;
-    using Blazor.Contentful_.Blog.Starter.CacheBusting.Manual;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Api;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Renderer;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Sdk;
-    using Blazor.Contentful_.Blog.Starter.Data;
-    using Blazor.Contentful_.Blog.Starter.FeedGeneration.Api;
-    using Blazor.Contentful_.Blog.Starter.FeedGeneration.Generators;
-    using Blazor.Contentful_.Blog.Starter.Localization;
-    using Blazor.Contentful_.Blog.Starter.PageMetadataGeneration.Api;
-    using Blazor.Contentful_.Blog.Starter.PageMetadataGeneration.Genereators;
-    using Blazor.Contentful_.Blog.Starter.SitemapGeneration.Api;
-    using Blazor.Contentful_.Blog.Starter.SitemapGeneration.Generators;
+    using CodyAnhorn.Tech.CacheBusting.Api;
+    using CodyAnhorn.Tech.CacheBusting.Manual;
+    using CodyAnhorn.Tech.ContentfulSdk.Api;
+    using CodyAnhorn.Tech.ContentfulSdk.Model;
+    using CodyAnhorn.Tech.ContentfulSdk.Renderer;
+    using CodyAnhorn.Tech.ContentfulSdk.Sdk;
+    using CodyAnhorn.Tech.Data;
+    using CodyAnhorn.Tech.FeedGeneration.Api;
+    using CodyAnhorn.Tech.FeedGeneration.Generators;
+    using CodyAnhorn.Tech.Localization;
+    using CodyAnhorn.Tech.PageMetadataGeneration.Api;
+    using CodyAnhorn.Tech.PageMetadataGeneration.Genereators;
+    using CodyAnhorn.Tech.SitemapGeneration.Api;
+    using CodyAnhorn.Tech.SitemapGeneration.Generators;
     using Contentful.AspNetCore;
     using EventHorizon.Blazor.DocumentMetadata;
     using Microsoft.AspNetCore.Builder;

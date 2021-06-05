@@ -1,9 +1,9 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.CacheBusting.Manual
+﻿namespace CodyAnhorn.Tech.CacheBusting.Manual
 {
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Blazor.Contentful_.Blog.Starter.CacheBusting.Api;
+    using CodyAnhorn.Tech.CacheBusting.Api;
     using Microsoft.Extensions.Logging;
 
     /// <summary>

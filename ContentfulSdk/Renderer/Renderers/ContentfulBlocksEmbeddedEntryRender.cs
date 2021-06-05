@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.ContentfulSdk.Renderer.Renderers
+﻿namespace CodyAnhorn.Tech.ContentfulSdk.Renderer.Renderers
 {
     using System.Net;
     using System.Text;

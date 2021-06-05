@@ -1,10 +1,12 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Data
+﻿namespace CodyAnhorn.Tech.Data
 {
-    using System.Web;
-
     public class OpenGraph
     {
         public string TwitterUser { get; set; } = string.Empty;
+        public string TwitchUser { get; set; } = string.Empty;
+        public string GitHubUser { get; set; } = string.Empty;
+        public string DiscordUrl { get; set; } = string.Empty;
+
 
         public static string GenerateImageUrl(
             string title

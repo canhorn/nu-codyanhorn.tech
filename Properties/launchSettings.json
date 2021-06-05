@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Blazor.Contentful_.Blog.Starter": {
+    "CodyAnhorn.Tech": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

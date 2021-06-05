@@ -1,5 +1,5 @@
 ﻿@page "/"
-@namespace Blazor.Contentful_.Blog.Starter.Pages
+@namespace CodyAnhorn.Tech.Pages
 @addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 @using EventHorizon.Blazor.DocumentMetadata.Components
 @{
@@ -38,7 +38,7 @@
           content="#f11012" />
 
     <link href="css/site.css" rel="stylesheet" />
-    <link href="Blazor.Contentful.Blog.Starter.styles.css" rel="stylesheet" />
+    <link href="CodyAnhorn.Tech.styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css"
           integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ=="
           crossorigin="anonymous"
@@ -58,8 +58,8 @@
         <environment include="Development">
             An unhandled exception has occurred. See browser dev tools for details.
         </environment>
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
+        <a href="#" class="reload" rel="nofollow">Reload</a>
+        <a class="dismiss" href="#" rel="nofollow">🗙</a>
     </div>
 
     <script src="_framework/blazor.server.js"></script>
@@ -71,6 +71,8 @@
             integrity="sha512-zc7WDnCM3aom2EziyDIRAtQg1mVXLdILE09Bo+aE1xk0AM2c2cVLfSW9NrxE5tKTX44WBY0Z2HClZ05ur9vB6A=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.staticaly.com/gh/malchata/yall.js/master/dist/yall.min.js"></script>
     <script>
         window.Prism = window.Prism || {};
         window.Prism.manual = true;
@@ -78,6 +80,12 @@
         function Prisim_highlightAll() {
             Prism.highlightAll();
         }
+        document.addEventListener("DOMContentLoaded", function () {
+            yall({
+                observeChanges: true
+            });
+        });
     </script>
+
 </body>
 </html>

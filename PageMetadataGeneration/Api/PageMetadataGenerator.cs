@@ -1,8 +1,8 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.PageMetadataGeneration.Api
+﻿namespace CodyAnhorn.Tech.PageMetadataGeneration.Api
 {
     using System.Threading.Tasks;
-    using Blazor.Contentful_.Blog.Starter.CacheBusting.Api;
-    using Blazor.Contentful_.Blog.Starter.Localization;
+    using CodyAnhorn.Tech.CacheBusting.Api;
+    using CodyAnhorn.Tech.Localization;
     using EventHorizon.Blazor.DocumentMetadata.Api;
     using Microsoft.Extensions.Localization;
 

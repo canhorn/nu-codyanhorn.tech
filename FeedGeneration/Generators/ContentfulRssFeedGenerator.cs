@@ -1,14 +1,14 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.FeedGeneration.Generators
+﻿namespace CodyAnhorn.Tech.FeedGeneration.Generators
 {
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Api;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Blog;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Renderer;
-    using Blazor.Contentful_.Blog.Starter.Data;
-    using Blazor.Contentful_.Blog.Starter.FeedGeneration.Api;
+    using CodyAnhorn.Tech.ContentfulSdk.Api;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Blog;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Page;
+    using CodyAnhorn.Tech.ContentfulSdk.Renderer;
+    using CodyAnhorn.Tech.Data;
+    using CodyAnhorn.Tech.FeedGeneration.Api;
     using Microsoft.Extensions.Options;
 
     public class ContentfulRssFeedGenerator

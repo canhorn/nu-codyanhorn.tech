@@ -1,8 +1,8 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Shared.Components.RichTextPageContent
+﻿namespace CodyAnhorn.Tech.Shared.Components.RichTextPageContent
 {
     using System.Threading.Tasks;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Renderer;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Page;
+    using CodyAnhorn.Tech.ContentfulSdk.Renderer;
     using Microsoft.AspNetCore.Components;
     using Microsoft.JSInterop;
 

@@ -1,6 +1,6 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Shared.Components
+﻿namespace CodyAnhorn.Tech.Shared.Components
 {
-    using Blazor.Contentful_.Blog.Starter.Localization;
+    using CodyAnhorn.Tech.Localization;
     using Microsoft.AspNetCore.Components;
     using Microsoft.Extensions.Localization;
 

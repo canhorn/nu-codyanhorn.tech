@@ -1,7 +1,7 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Shared.Components.Post
+﻿namespace CodyAnhorn.Tech.Shared.Components.Post
 {
     using System.Reflection.Metadata;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Blog;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Blog;
     using Microsoft.AspNetCore.Components;
 
     public class PostBase

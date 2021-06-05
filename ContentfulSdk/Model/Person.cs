@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model
+﻿namespace CodyAnhorn.Tech.ContentfulSdk.Model
 {
     using Contentful.Core.Models;
 

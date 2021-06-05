@@ -1,6 +1,6 @@
-﻿namespace Blazor.Contentful_.Blog.Starter
+﻿namespace CodyAnhorn.Tech
 {
-    using Blazor.Contentful_.Blog.Starter.Data;
+    using CodyAnhorn.Tech.Data;
     using Microsoft.AspNetCore.Components;
     using Microsoft.Extensions.Options;
 

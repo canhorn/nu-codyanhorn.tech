@@ -1,9 +1,11 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Data
+﻿namespace CodyAnhorn.Tech.Data
 {
     using System.Collections.Generic;
+    using CodyAnhorn.Tech.ContentfulSdk.Model;
 
     public class SiteConfig
     {
+        public ContentfulConfig ContentfulOptions { get; set; } = new ContentfulConfig();
         public string SITE_URL { get; set; } = string.Empty;
         public SiteDetails Site { get; set; } = new SiteDetails();
         public PageMeta PageMeta { get; set; } = new PageMeta();

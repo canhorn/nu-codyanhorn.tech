@@ -1,7 +1,7 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.SitemapGeneration.Api
+﻿namespace CodyAnhorn.Tech.SitemapGeneration.Api
 {
     using System.Threading.Tasks;
-    using Blazor.Contentful_.Blog.Starter.CacheBusting.Api;
+    using CodyAnhorn.Tech.CacheBusting.Api;
 
     public interface SitemapGenerator
         : BustCache

@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Shared.Components.DynamicComponent
+﻿namespace CodyAnhorn.Tech.Shared.Components.DynamicComponent
 {
     using System;
     using System.Collections.Generic;

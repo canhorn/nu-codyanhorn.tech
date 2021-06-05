@@ -1,7 +1,7 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.FeedGeneration.Api
+﻿namespace CodyAnhorn.Tech.FeedGeneration.Api
 {
     using System.Threading.Tasks;
-    using Blazor.Contentful_.Blog.Starter.CacheBusting.Api;
+    using CodyAnhorn.Tech.CacheBusting.Api;
 
     public interface RssFeedGenerator
         : CacheBuster

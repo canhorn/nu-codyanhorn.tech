@@ -1,9 +1,9 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Pages
+﻿namespace CodyAnhorn.Tech.Pages
 {
     using System.Threading.Tasks;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
-    using Blazor.Contentful_.Blog.Starter.Data;
-    using Blazor.Contentful_.Blog.Starter.Shared.Components;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Page;
+    using CodyAnhorn.Tech.Data;
+    using CodyAnhorn.Tech.Shared.Components;
     using Microsoft.AspNetCore.Components;
 
     public class IndexBase

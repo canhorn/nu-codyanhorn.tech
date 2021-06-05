@@ -34,7 +34,7 @@
     margin: 0
 }
 
-.hero-banner__bg-img {
+::deep .hero-banner__bg-img {
     object-position: center;
     object-fit: cover;
     pointer-events: none;

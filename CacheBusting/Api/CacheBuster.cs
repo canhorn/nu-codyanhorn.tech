@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.CacheBusting.Api
+﻿namespace CodyAnhorn.Tech.CacheBusting.Api
 {
     using System.Threading.Tasks;
 

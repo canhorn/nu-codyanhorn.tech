@@ -1,12 +1,9 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Pages.Blog
+﻿namespace CodyAnhorn.Tech.Pages.Blog
 {
-    using System;
-    using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Blog;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
-    using Blazor.Contentful_.Blog.Starter.Data;
-    using Blazor.Contentful_.Blog.Starter.Shared.Components;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Blog;
+    using CodyAnhorn.Tech.Data;
+    using CodyAnhorn.Tech.Shared.Components;
     using Microsoft.AspNetCore.Components;
 
     public class PostPageBase

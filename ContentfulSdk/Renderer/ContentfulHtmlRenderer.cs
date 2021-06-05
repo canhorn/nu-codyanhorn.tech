@@ -1,11 +1,8 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.ContentfulSdk.Renderer
+﻿namespace CodyAnhorn.Tech.ContentfulSdk.Renderer
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Renderer.Renderers;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Page;
+    using CodyAnhorn.Tech.ContentfulSdk.Renderer.Renderers;
     using Contentful.Core.Models;
 
     public class ContentfulHtmlRenderer
@@ -17,6 +14,9 @@
             _renderer = new HtmlRenderer();
             _renderer.AddRenderer(
                 new ContentfulBlocksEmbeddedEntryRender()
+            );
+            _renderer.AddRenderer(
+                new ContentfulLazyImageRender()
             );
         }
 

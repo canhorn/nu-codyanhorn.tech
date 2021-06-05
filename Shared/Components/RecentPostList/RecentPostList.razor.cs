@@ -1,10 +1,10 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Shared.Components.RecentPostList
+﻿namespace CodyAnhorn.Tech.Shared.Components.RecentPostList
 {
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Api;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Blog;
-    using Blazor.Contentful_.Blog.Starter.Data;
+    using CodyAnhorn.Tech.ContentfulSdk.Api;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Blog;
+    using CodyAnhorn.Tech.Data;
     using Microsoft.AspNetCore.Components;
 
     public class RecentPostListBase

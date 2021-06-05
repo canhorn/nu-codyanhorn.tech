@@ -1,7 +1,7 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Blog
+﻿namespace CodyAnhorn.Tech.ContentfulSdk.Model.Blog
 {
     using System.Collections.Generic;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Model.Page;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Page;
     using Contentful.Core.Models;
 
     public class BlogPost

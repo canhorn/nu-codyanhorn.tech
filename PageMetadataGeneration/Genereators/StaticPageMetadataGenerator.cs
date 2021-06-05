@@ -1,12 +1,12 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.PageMetadataGeneration.Genereators
+﻿namespace CodyAnhorn.Tech.PageMetadataGeneration.Genereators
 {
     using System;
     using System.Threading.Tasks;
-    using Blazor.Contentful_.Blog.Starter.CacheBusting.Api;
-    using Blazor.Contentful_.Blog.Starter.ContentfulSdk.Api;
-    using Blazor.Contentful_.Blog.Starter.Data;
-    using Blazor.Contentful_.Blog.Starter.Localization;
-    using Blazor.Contentful_.Blog.Starter.PageMetadataGeneration.Api;
+    using CodyAnhorn.Tech.CacheBusting.Api;
+    using CodyAnhorn.Tech.ContentfulSdk.Api;
+    using CodyAnhorn.Tech.Data;
+    using CodyAnhorn.Tech.Localization;
+    using CodyAnhorn.Tech.PageMetadataGeneration.Api;
     using EventHorizon.Blazor.DocumentMetadata.Api;
     using Microsoft.Extensions.Localization;
     using Microsoft.Extensions.Logging;
@@ -158,7 +158,7 @@
                     _siteConfig.GetSiteUrl(slug),
                     post.ExternalUrl.IsNotNullOrWhitespace()
                         ? post.ExternalUrl
-                        : "false"
+                        : string.Empty
                 );
 
                 totalPosts += 1;

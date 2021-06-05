@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Shared
+﻿namespace CodyAnhorn.Tech.Shared
 {
     using System.Reflection;
     using Microsoft.AspNetCore.Components;

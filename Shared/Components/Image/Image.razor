@@ -1,0 +1,16 @@
+﻿
+<img decoding="async"
+     loading="lazy"
+     class="lazy"
+     src="/images/placeholder-image.png"
+     data-src="@src"
+     @attributes="ImageAttributes" 
+     />
+
+@code {
+
+    public string src { get; set; } = string.Empty;
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> ImageAttributes { get; set; } = null!;
+}

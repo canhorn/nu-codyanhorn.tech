@@ -1,4 +1,4 @@
-namespace Blazor.Contentful_.Blog.Starter
+namespace CodyAnhorn.Tech
 {
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.Hosting;

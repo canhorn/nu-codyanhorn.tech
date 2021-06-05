@@ -50,7 +50,7 @@
         },
         "repoUrl": {
             "type": "string",
-            "defaultValue": "https://github.com/canhorn/Blazor.Contentful.Blog.Starter",
+            "defaultValue": "https://github.com/canhorn/nu-codyanhorn.tech",
             "metadata": {
                 "description": "Git Repo URL"
             }

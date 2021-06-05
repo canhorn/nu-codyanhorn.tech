@@ -1,4 +1,4 @@
-﻿namespace Blazor.Contentful_.Blog.Starter.Data
+﻿namespace CodyAnhorn.Tech.Data
 {
     public class SiteDetails
     {
