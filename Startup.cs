@@ -164,6 +164,7 @@ namespace CodyAnhorn.Tech
                     }
                 );
 
+                endpoints.MapFallbackToPage("blog/{**slug}", "/_Host");
                 endpoints.MapFallbackToPage("/_Host");
             });
         }
