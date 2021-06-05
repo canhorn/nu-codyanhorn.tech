@@ -100,11 +100,6 @@ namespace Blazor.Contentful_.Blog.Starter
                 );
         }
 
-        private int IStringLocalizer<T>()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseDocumentMetadata();

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Articles | Blazor Contentful blog starter" xml:space="preserve">
-    <value>Articles | Blazor Contentful blog starter</value>
+    <value>Articles | Cody's Personal Site</value>
     <comment>A Page Description.</comment>
   </data>
   <data name="Blog" xml:space="preserve">
@@ -183,7 +183,7 @@
     <value>Website</value>
   </data>
   <data name="Welcome to the Blazor Contentful blog Starter" xml:space="preserve">
-    <value>Welcome to the Blazor Contentful blog Starter</value>
+    <value>Welcome to Cody's Personal Site</value>
   </data>
   <data name="{0} Page {1}" xml:space="preserve">
     <value>{0} Page {1}</value>
