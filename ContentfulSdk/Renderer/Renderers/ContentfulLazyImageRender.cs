@@ -38,7 +38,13 @@
                 && target.File.ContentType.ToLower().Contains("image")
             )
             {
-                stringBuilder.Append("<img class=\"lazy\" src=\"/images/placeholder-image.png\" data-src=\"" + target.File.Url + "\" alt=\"" + target.Title + "\" />");
+                stringBuilder.Append("<img class=\"lazy\" src=\"/images/placeholder-image.png\" data-src=\"" + target.File.Url + "\" alt=\"" + target.Title + "\" ");
+
+                stringBuilder.Append(" data-srcset=\"");
+                stringBuilder.Append(ContentfulImageSourceSetGeneration.CreateSourceSet(target.File.Url, "75"));
+                stringBuilder.Append('"');
+
+                stringBuilder.Append(" />");
             }
 
             return stringBuilder.ToString();
