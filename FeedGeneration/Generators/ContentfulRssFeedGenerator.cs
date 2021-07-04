@@ -176,8 +176,8 @@
 
         private static readonly string POST_TEMPLATE = @"
 <item>
-    <title>{{POST_TITLE}}</title>
-    <description>{{POST_EXCERPT}}</description>
+    <title><![CDATA[{{POST_TITLE}}]]></title>
+    <description><![CDATA[{{POST_EXCERPT}}]]></description>
     <author>{{AUTHOR_EMAIL}} ({{AUTHOR_NAME}})</author>
     <link>https://{{SITE_DOMAIN}}/blog/{{POST_SLUG}}</link>
     <guid>https://{{SITE_DOMAIN}}/blog/{{POST_SLUG}}</guid>
