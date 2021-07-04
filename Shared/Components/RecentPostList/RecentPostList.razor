@@ -1,4 +1,5 @@
-﻿@inherits RecentPostListBase
+﻿@using CodyAnhorn.Tech.ContentfulSdk.Model.Blog
+@inherits RecentPostListBase
 
 <h2 class="recent-post-list__header">
     @Localizer["Recent Articles"]
@@ -11,7 +12,7 @@
                 <PublishedDate Date="@post.Date" />
             </article>
             <a class="content-list__title-link"
-               href="/blog/@post.Slug">
+               href="@BlogPost.GenerateSlug(Config.PageMeta.BlogIndex.Slug, post.Slug)">
                 <h2 class="content-list__title">
                     @post.Title
                 </h2>

@@ -4,6 +4,7 @@
     using System.Threading.Tasks;
     using CodyAnhorn.Tech.CacheBusting.Api;
     using CodyAnhorn.Tech.ContentfulSdk.Api;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Blog;
     using CodyAnhorn.Tech.Data;
     using CodyAnhorn.Tech.Localization;
     using CodyAnhorn.Tech.PageMetadataGeneration.Api;
@@ -112,11 +113,11 @@
 
             // Add Not Found Page
             BuildPage(
-                "/not-found",
+                _siteConfig.PageMeta.NotFound.Slug,
                 _siteConfig.Site.Title,
                 localizer["Not Found"]!,
                 localizer["This page was not found"]!,
-                _siteConfig.GetSiteUrl("/not-found")
+                _siteConfig.GetSiteUrl(_siteConfig.PageMeta.NotFound.Url)
             );
 
             // Add Index Page
@@ -149,7 +150,10 @@
             var totalPosts = 0;
             foreach (var post in posts)
             {
-                var slug = $"{_siteConfig.PageMeta.BlogIndex.Slug}/{post.Slug}";
+                var slug = BlogPost.GenerateSlug(
+                    _siteConfig.PageMeta.BlogIndex.Slug,
+                    post.Slug
+                );
                 BuildPage(
                     slug,
                     _siteConfig.Site.Title,

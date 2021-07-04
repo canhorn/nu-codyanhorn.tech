@@ -165,7 +165,9 @@ namespace CodyAnhorn.Tech
                 );
 
                 endpoints.MapFallbackToPage("blog/{**slug}", "/_Host");
-                endpoints.MapFallbackToPage("/_Host");
+                endpoints.MapFallbackToPage("{*path:regex(^(?!api).*$)}", "/_Host");
+
+                //endpoints.MapFallbackToPage("/_Host");
             });
         }
     }

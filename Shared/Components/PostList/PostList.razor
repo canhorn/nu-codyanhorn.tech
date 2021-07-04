@@ -1,4 +1,5 @@
 ﻿@using CodyAnhorn.Tech.Shared.Components.PostList.Pagination
+@using CodyAnhorn.Tech.ContentfulSdk.Model.Blog
 @inherits PostListBase
 
 <ol class="content-list">
@@ -8,7 +9,7 @@
             <article class="content-list__post">
                 <PublishedDate Date="@post.Date" />
                 <a class="content-list__title-link"
-                   href="@($"{Config.PageMeta.BlogIndex.Slug}/{post.Slug}")">
+                   href="@BlogPost.GenerateSlug(Config.PageMeta.BlogIndex.Slug, post.Slug)">
                     <h2 class="content-list__title">
                         @post.Title
                     </h2>

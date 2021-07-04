@@ -7,6 +7,8 @@
         public UrlSlug BlogIndex { get; set; } = new UrlSlug();
         public UrlSlug BlogIndexPage { get; set; } = new UrlSlug();
         public UrlSlug Post { get; set; } = new UrlSlug();
+        public UrlSlug UsesIndex { get; set; } = new UrlSlug();
+        public UrlSlug UsesPost { get; set; } = new UrlSlug();
         public UrlSlug BuildRss { get; set; } = new UrlSlug();
         public UrlSlug NotFound { get; set; } = new UrlSlug();
     }

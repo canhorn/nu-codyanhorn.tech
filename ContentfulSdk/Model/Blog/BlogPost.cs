@@ -17,5 +17,18 @@
 
         public PageBody? Body { get; set; }
         public string? MarkdownBody { get; set; }
+
+        public static string GenerateSlug(
+            string rootSlug,
+            string slug
+        )
+        {
+            if (slug.StartsWith("/"))
+            {
+                return slug;
+            }
+
+            return $"{rootSlug}/{slug}";
+        }
     }
 }
