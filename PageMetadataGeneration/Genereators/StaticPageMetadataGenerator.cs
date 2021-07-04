@@ -86,7 +86,7 @@
             )
             {
                 var title = $"{pageTitle} | {siteConfigTitle}";
-                var openGraphImage = OpenGraph.GenerateImageUrl(title);
+                var openGraphImage = OpenGraph.GenerateImageUrl(siteConfigTitle, pageTitle);
 
                 var page = registrator.AddPage(slug)
                     .Title(title)
