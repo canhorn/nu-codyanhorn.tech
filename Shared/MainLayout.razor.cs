@@ -8,6 +8,7 @@
     {
         [CascadingParameter(Name = "IsPreview")]
         public bool IsPreview { get; set; }
+        public string AnimateCSS { get; set; } = string.Empty;
 
         public string Pathname { get; set; } = "/";
 
@@ -18,6 +19,12 @@
                 .PageType
                 ?.GetCustomAttribute<RouteAttribute>()
                 ?.Template ?? "/";
+        }
+
+        protected override void OnAfterRender(bool firstRender)
+        {
+            base.OnAfterRender(firstRender);
+            AnimateCSS = "--animate";
         }
     }
 }

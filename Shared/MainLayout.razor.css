@@ -1,0 +1,27 @@
+.main-content {
+    min-height: 500px;
+}
+
+/*
+  If the browser understands the media query and the user
+  explicitly hasn't set a preference, then use animations on buttons.
+*/
+@media (prefers-reduced-motion: no-preference) {
+    .main-content.--animate ::deep > * {
+        opacity: 1;
+        animation-name: fadeInOpacity;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 0.125s;
+    }
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

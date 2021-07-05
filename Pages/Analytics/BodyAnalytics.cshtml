@@ -1,0 +1,15 @@
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    var isPreview = Configuration.GetValue<bool>("ContentfulOptions:UsePreviewApi");
+}
+
+@if (!isPreview)
+{
+    <script src="https://ehz-analytics.azurewebsites.net/api/track"></script>
+
+}
+else
+{
+    <!-- BodyAnalytics -- In Preview -->
+}
