@@ -7,13 +7,13 @@
     {
         <ExternalUrl url="@Post.ExternalUrl" />
     }
-    <PublishedDate Date="@Post.Date" />
 
     @if (Post.Tags is not null)
     {
         <Tags TagList="Post.Tags" />
     }
-    <h1 class="heading__h1">@Post.Title</h1>
+    <h1 class="page__title heading__h1">@Post.Title</h1>
+    <PublishedDate Date="@Post.Date" />
 
     <RichTextPageContent Body="@Post.Body" />
 

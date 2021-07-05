@@ -163,6 +163,9 @@
   <data name="See More Articles" xml:space="preserve">
     <value>See More Articles</value>
   </data>
+  <data name="Skip to Main Content" xml:space="preserve">
+    <value>Skip to Main Content</value>
+  </data>
   <data name="The ASP.NET Blazor Logo." xml:space="preserve">
     <value>The ASP.NET Blazor Logo.</value>
   </data>

@@ -86,6 +86,15 @@
                 observeChanges: true
             });
         });
+
+        // Scoll into view takes an element id and moves the page to it.
+        function scrollIntoView(elementId) {
+            var elem = document.getElementById(elementId);
+            if (elem) {
+                elem.scrollIntoView();
+                window.location.hash = elementId;
+            }
+        }
     </script>
 
     <partial name="Analytics/BodyAnalytics" />

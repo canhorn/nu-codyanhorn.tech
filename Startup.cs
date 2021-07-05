@@ -5,7 +5,6 @@ namespace CodyAnhorn.Tech
     using CodyAnhorn.Tech.CacheBusting.Api;
     using CodyAnhorn.Tech.CacheBusting.Manual;
     using CodyAnhorn.Tech.ContentfulSdk.Api;
-    using CodyAnhorn.Tech.ContentfulSdk.Model;
     using CodyAnhorn.Tech.ContentfulSdk.Renderer;
     using CodyAnhorn.Tech.ContentfulSdk.Sdk;
     using CodyAnhorn.Tech.Data;
@@ -14,6 +13,8 @@ namespace CodyAnhorn.Tech
     using CodyAnhorn.Tech.Localization;
     using CodyAnhorn.Tech.PageMetadataGeneration.Api;
     using CodyAnhorn.Tech.PageMetadataGeneration.Genereators;
+    using CodyAnhorn.Tech.RobotsTxtGeneration.Api;
+    using CodyAnhorn.Tech.RobotsTxtGeneration.Generator;
     using CodyAnhorn.Tech.SitemapGeneration.Api;
     using CodyAnhorn.Tech.SitemapGeneration.Generators;
     using Contentful.AspNetCore;
@@ -58,6 +59,9 @@ namespace CodyAnhorn.Tech
 
             // Setup RSS Feed Services
             services.AddSingleton<RssFeedGenerator, ContentfulRssFeedGenerator>();
+
+            // Setup robots.txt Services
+            services.AddSingleton<RobotsTxtGenerator, StaticRobotsTxtGenerator>();
 
             // I18n Services
             // This registers the supported Locales for localization.
@@ -124,6 +128,20 @@ namespace CodyAnhorn.Tech
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapBlazorHub();
+
+                // Here we register <domain>/robots.txt to return the generated Sitemap
+                endpoints.MapGet(
+                    "/robots.txt",
+                    async context =>
+                    {
+                        await context.Response.WriteAsync(
+                            context.RequestServices
+                                .GetRequiredService<RobotsTxtGenerator>()
+                                .Generate()
+                        );
+                    }
+                );
+
 
                 // Here we register <domain>/sitemap.xml to return the generated Sitemap
                 endpoints.MapGet(

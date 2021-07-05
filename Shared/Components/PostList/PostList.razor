@@ -7,19 +7,26 @@
     {
         <li @key="post.Sys.Id">
             <article class="content-list__post">
-                <PublishedDate Date="@post.Date" />
                 <a class="content-list__title-link"
                    href="@BlogPost.GenerateSlug(Config.PageMeta.BlogIndex.Slug, post.Slug)">
                     <h2 class="content-list__title">
                         @post.Title
                     </h2>
                 </a>
+                <PublishedDate Date="@post.Date" />
                 @if (post.Tags is not null)
                 {
                     <Tags TagList="post.Tags" />
                 }
                 <div class="content-list__excerpt">
                     <BlazorMarkdown Markdown="@post.Excerpt" />
+                </div>
+
+                <div class="content-list__read-more-container">
+                    <a class="content-list__read-more-link"
+                       href="@BlogPost.GenerateSlug(Config.PageMeta.BlogIndex.Slug, post.Slug)">
+                        @Localizer["Read More ->"]
+                    </a>
                 </div>
             </article>
         </li>

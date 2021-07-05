@@ -2,6 +2,34 @@
     min-height: 500px;
 }
 
+.skip-main-wrapper ::deep .skip-main {
+    left: -999px;
+    position: absolute;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    text-decoration: none;
+    font-weight: var(--font-weight-bold);
+    z-index: -999;
+}
+
+    .skip-main-wrapper ::deep .skip-main:focus,
+    .skip-main-wrapper ::deep .skip-main:active {
+        color: var( --color-background);
+        background-color: var(--color-foreground);
+        left: auto;
+        top: auto;
+        width: 30%;
+        height: auto;
+        overflow: auto;
+        margin: 10px 35%;
+        padding: 5px;
+        text-align: center;
+        font-size: 1.2em;
+        z-index: 999;
+    }
+
 /*
   If the browser understands the media query and the user
   explicitly hasn't set a preference, then use animations on buttons.

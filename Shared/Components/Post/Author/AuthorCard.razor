@@ -1,4 +1,5 @@
 ﻿@using CodyAnhorn.Tech.ContentfulSdk.Model
+@using CodyAnhorn.Tech.Shared.Components.SocialLinks.svg
 @inherits StandardComponentBase
 
 <div class="author">
@@ -10,12 +11,6 @@
                    alt="@Author.Image.Description"
                    height="@Author.Image.File.Details.Image.Height"
                    width="@Author.Image.File.Details.Image.Width" />
-
-            @*<img class="author__img --sized"
-                 src="@(Author.Image.File.Url)"
-                 alt="@Author.Image.Description"
-                 height="@Author.Image.File.Details.Image.Height"
-                 width="@Author.Image.File.Details.Image.Width" />*@
         </div>
     }
     <div class="author__details-container">
@@ -26,42 +21,46 @@
         @if (HasLinks)
         {
             <div class="author__links">
-                @if (Author.TwitterUsername.IsNotNullOrWhitespace())
-                {
-                    <a class="inline-link author__link-text"
-                       href="@($"https://twitter.com/{Author.TwitterUsername}")"
-                       target="_blank"
-                       rel="nofollow noreferrer">
-                        @Localizer["Twitter"]
-                    </a>
-                }
-                @if (Author.TwitchUsername.IsNotNullOrWhitespace())
-                {
-                    <a class="inline-link author__link-text"
-                       href="@($"https://twitch.tv/{Author.TwitchUsername}")"
-                       target="_blank"
-                       rel="nofollow noreferrer">
-                        @Localizer["Twitch"]
-                    </a>
-                }
-                @if (Author.GitHubUsername.IsNotNullOrWhitespace())
-                {
-                    <a class="inline-link author__link-text"
-                       href="@($"https://github.com/{Author.GitHubUsername}")"
-                       target="_blank"
-                       rel="nofollow noreferrer">
-                        @Localizer["GitHub"]
-                    </a>
-                }
-                @if (Author.WebsiteUrl.IsNotNullOrWhitespace())
-                {
-                    <a class="inline-link author__link-text"
-                       href="@Author.WebsiteUrl"
-                       target="_blank"
-                       rel="nofollow noreferrer">
-                        @Localizer["Website"]
-                    </a>
-                }
+                <ul class="social-links__list">
+
+                    @if (Author.TwitterUsername.IsNotNullOrWhitespace())
+                    {
+                        <li class="social-links__list-item">
+                            <a class="social-links__list-item-link"
+                               href="@($"https://twitter.com/{Author.TwitterUsername}")"
+                               aria-label="@Localizer["Twitter"]"
+                               target="_blank"
+                               rel="nofollow noreferrer">
+                                <Twitter />
+                            </a>
+                        </li>
+                    }
+                    @if (Author.TwitchUsername.IsNotNullOrWhitespace())
+                    {
+                        <li class="social-links__list-item">
+                            <a class="social-links__list-item-link"
+                               href="@($"https://twitch.tv/{Author.TwitchUsername}")"
+                               aria-label="@Localizer["Twitch"]"
+                               target="_blank"
+                               rel="nofollow noreferrer">
+                                <Twitch />
+                            </a>
+                        </li>
+                    }
+                    @if (Author.GitHubUsername.IsNotNullOrWhitespace())
+                    {
+                        <li class="social-links__list-item">
+                            <a class="social-links__list-item-link"
+                               href="@($"https://github.com/{Author.GitHubUsername}")"
+                               aria-label="@Localizer["GitHub"]"
+                               target="_blank"
+                               rel="nofollow noreferrer">
+                                <GitHub />
+                            </a>
+                        </li>
+                    }
+                </ul>
+
             </div>
         }
     </div>

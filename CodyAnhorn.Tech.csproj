@@ -15,8 +15,4 @@
         <PackageReference Include="EventHorizon.Blazor.DocumentMetadata" Version="0.1.3" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Shared\Components\SocialLinks\svg\NewFolder\" />
-    </ItemGroup>
-
 </Project>

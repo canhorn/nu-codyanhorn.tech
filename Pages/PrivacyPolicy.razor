@@ -1,0 +1,16 @@
+@page "/privacy-policy"
+@inherits PrivacyPolicyBase
+
+<HeroBanner Data="PageContent.HeroBanner" />
+
+<ContentWrapper>
+    @if (PageContent is not null
+       && PageContent.Body is not null)
+    {
+        <PageContentWrapper>
+            <RichTextPageContent Body="PageContent.Body" />
+        </PageContentWrapper>
+    }
+</ContentWrapper>
+
+

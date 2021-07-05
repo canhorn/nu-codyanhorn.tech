@@ -1,6 +1,12 @@
 @inherits MainLayoutBase
 
 <CascadingValue Name="Pathname" Value="@Pathname">
+    <div class="skip-main-wrapper">
+        <AnchorLink class="skip-main"
+                    href="#main-content">
+            @Localizer["Skip to Main Content"]
+        </AnchorLink>
+    </div>
     @if (IsPreview)
     {
         <PreviewBanner />
