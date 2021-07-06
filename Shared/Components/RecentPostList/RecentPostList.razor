@@ -23,6 +23,13 @@
                 <div class="content-list__excerpt">
                     <BlazorMarkdown Markdown="@post.Excerpt" />
                 </div>
+
+                <div class="content-list__read-more-container">
+                    <a class="content-list__read-more-link"
+                       href="@BlogPost.GenerateSlug(Config.PageMeta.BlogIndex.Slug, post.Slug)">
+                        @Localizer["Read More ->"]
+                    </a>
+                </div>
             </article>
         </li>
     }

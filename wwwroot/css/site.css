@@ -319,6 +319,13 @@ img {
 
 .content-list__read-more-container {
     margin-bottom: 3rem;
+    text-align: end;
+}
+
+@media screen and (min-width: 600px) {
+    .content-list__read-more-container {
+        text-align: start;
+    }
 }
 
 .content-list__read-more-link {
@@ -344,4 +351,8 @@ ul {
 
 .blazor-markdown a.--disable-focus {
     box-shadow: none;
+}
+
+.blazor-markdown p {
+    text-align: justify;
 }
