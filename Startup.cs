@@ -54,6 +54,8 @@ namespace CodyAnhorn.Tech
                     );
                 });
 
+            services.AddApplicationInsightsTelemetry();
+
             // Setup Sitemap Services
             services.AddSingleton<SitemapGenerator, DynamicSitemapGenerator>();
 
