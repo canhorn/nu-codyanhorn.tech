@@ -2,6 +2,7 @@ namespace CodyAnhorn.Tech
 {
     using System.Collections.Generic;
     using System.Globalization;
+    using BlazorApplicationInsights;
     using CodyAnhorn.Tech.CacheBusting.Api;
     using CodyAnhorn.Tech.CacheBusting.Manual;
     using CodyAnhorn.Tech.ContentfulSdk.Api;
@@ -54,7 +55,7 @@ namespace CodyAnhorn.Tech
                     );
                 });
 
-            services.AddApplicationInsightsTelemetry();
+            services.AddBlazorApplicationInsights();
 
             // Setup Sitemap Services
             services.AddSingleton<SitemapGenerator, DynamicSitemapGenerator>();

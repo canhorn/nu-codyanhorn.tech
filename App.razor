@@ -1,4 +1,7 @@
-﻿@inherits AppBase
+﻿@using BlazorApplicationInsights
+@inherits AppBase
+
+<ApplicationInsightsComponent />
 
 <CascadingValue Value="SiteConfig">
     <CascadingValue Name="IsPreview" Value="SiteConfig.ContentfulOptions.UsePreviewApi">

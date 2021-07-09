@@ -4,6 +4,8 @@
     var isPreview = Configuration.GetValue<bool>("ContentfulOptions:UsePreviewApi");
 }
 
+<script src="_content/BlazorApplicationInsights/JsInterop.js"></script>
+
 @if (!isPreview)
 {
     <script src="https://ehz-analytics.azurewebsites.net/api/track"></script>
