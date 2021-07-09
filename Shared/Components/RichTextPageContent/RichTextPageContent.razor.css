@@ -142,7 +142,6 @@
 
 .rich-text ::deep code.code-block__inner {
     overflow-x: auto;
-    white-space: pre-wrap;
 }
 
 .rich-text ::deep .video-embed {
