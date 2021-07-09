@@ -55,6 +55,10 @@ namespace CodyAnhorn.Tech
                     );
                 });
 
+            // Setup Application Insights
+            // For Server Performance Metrics tracking
+            services.AddApplicationInsightsTelemetry();
+            // For Blazor Router Tracking
             services.AddBlazorApplicationInsights();
 
             // Setup Sitemap Services
