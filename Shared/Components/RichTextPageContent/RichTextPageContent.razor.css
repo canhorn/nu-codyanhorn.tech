@@ -185,3 +185,8 @@
             outline-width: 0;
             box-shadow: unset;
         }
+
+/* Language Specific Styles Tweaks */
+.rich-text ::deep pre.code-block .operator {
+    background: initial;
+}
