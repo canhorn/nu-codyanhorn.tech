@@ -1,7 +1,6 @@
 ﻿namespace CodyAnhorn.Tech.Shared.Components.Image
 {
     using System.Collections.Generic;
-    using System.Linq;
     using CodyAnhorn.Tech.ContentfulSdk.Renderer;
     using Microsoft.AspNetCore.Components;
 

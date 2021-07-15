@@ -55,6 +55,30 @@
                         .Append(WebUtility.HtmlEncode(code))
                         .Append("</code></pre>");
                     break;
+                case "hyperlink":
+                    var href = targetTyped.Href;
+                    var linkTitle = targetTyped.Href;
+                    var linkRel = targetTyped.Rel;
+                    var linkTarget = targetTyped.Target;
+                    var linkContent = targetTyped.Content;
+                    stringBuilder.Append("<a class=\"hyperlink\"")
+                        .Append(" href=\"").Append(href).Append('"')
+                        .Append(" title=\"").Append(linkTitle).Append('"');
+
+                    if (linkRel.IsNotNullOrWhitespace())
+                    {
+                        stringBuilder.Append(" rel=\"").Append(linkRel).Append('"');
+                    }
+
+                    if (linkTarget.IsNotNullOrWhitespace())
+                    {
+                        stringBuilder.Append(" target=\"").Append(linkTarget).Append('"');
+                    }
+
+                    stringBuilder.Append('>')
+                        .Append(linkContent)
+                        .Append("</a>");
+                    return stringBuilder.ToString();
                 default:
                     break;
             }
@@ -74,6 +98,10 @@
             public string EmbedUrl { get; set; } = string.Empty;
             public string Language { get; set; } = string.Empty;
             public string Code { get; set; } = string.Empty;
+            public string Href { get; set; } = string.Empty;
+            public string Rel { get; set; } = string.Empty;
+            public string Target { get; set; } = string.Empty;
+            public string Content { get; set; } = string.Empty;
         }
     }
 }
