@@ -1,13 +1,22 @@
 ﻿namespace CodyAnhorn.Tech.ContentfulSdk.Renderer.Renderers
 {
+    using System.Collections.Generic;
     using System.Net;
     using System.Text;
     using System.Threading.Tasks;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Blog;
     using Contentful.Core.Models;
 
     public class ContentfulBlocksEmbeddedEntryRender
         : IContentRenderer
     {
+        private readonly string _blogRootSlug;
+
+        public ContentfulBlocksEmbeddedEntryRender(string blogRootSlug)
+        {
+            _blogRootSlug = blogRootSlug;
+        }
+
         public int Order
         {
             get;
@@ -33,6 +42,20 @@
 
             switch (contentType)
             {
+                case "blogPost":
+                    var blogHref = BlogPost.GenerateSlug(
+                        _blogRootSlug,targetTyped.Slug
+                    );
+                    var blogTitle = targetTyped.Excerpt;
+                    var blogContent = targetTyped.Title;
+                    stringBuilder.Append("<a class=\"blog-post-hyperlink\"")
+                        .Append(" href=\"").Append(blogHref).Append('"')
+                        .Append(" title=\"").Append(blogTitle).Append('"');
+
+                    stringBuilder.Append('>')
+                        .Append(blogContent)
+                        .Append("</a>");
+                    break;
                 case "videoEmbed":
                     var title = targetTyped.Title;
                     var embedUrl = targetTyped.EmbedUrl;
@@ -57,7 +80,7 @@
                     break;
                 case "hyperlink":
                     var href = targetTyped.Href;
-                    var linkTitle = targetTyped.Href;
+                    var linkTitle = targetTyped.Title;
                     var linkRel = targetTyped.Rel;
                     var linkTarget = targetTyped.Target;
                     var linkContent = targetTyped.Content;
@@ -78,7 +101,7 @@
                     stringBuilder.Append('>')
                         .Append(linkContent)
                         .Append("</a>");
-                    return stringBuilder.ToString();
+                    break;
                 default:
                     break;
             }
@@ -102,6 +125,11 @@
             public string Rel { get; set; } = string.Empty;
             public string Target { get; set; } = string.Empty;
             public string Content { get; set; } = string.Empty;
+
+            public string Slug { get; set; } = string.Empty;
+            public string Excerpt { get; set; } = string.Empty;
+            public List<string> Categories { get; set; } = new();
+            public List<string> Tags { get; set; } = new();
         }
     }
 }
