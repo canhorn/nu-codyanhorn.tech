@@ -25,9 +25,24 @@
 
         protected override async Task OnInitializedAsync()
         {
+            await LoadPage();
+        }
+
+        protected override async Task OnParametersSetAsync()
+        {
+            await LoadPage();
+        }
+
+        private async Task LoadPage()
+        {
+            if (Slug == Post?.Slug)
+            {
+                return;
+            }
+
             var postResult = await ContentfulApi.GetPostBySlug(
                Slug
-           );
+            );
             if (postResult is null)
             {
                 NavigationManager.NavigateTo("/not-found");
