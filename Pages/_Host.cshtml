@@ -95,6 +95,15 @@
                 window.location.hash = elementId;
             }
         }
+
+        // Used for on page anchor scrolling
+        function delayedScrollIntoView(elementId) {
+            setTimeout(function () { scrollIntoView(elementId); }, 0);
+            return false;
+        }
+        window.addEventListener("load", function () {
+            delayedScrollIntoView(window.location.hash.substring(1));
+        });
     </script>
 
     <partial name="Analytics/BodyAnalytics" />

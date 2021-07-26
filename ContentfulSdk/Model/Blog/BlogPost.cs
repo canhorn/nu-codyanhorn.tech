@@ -5,6 +5,7 @@
     using Contentful.Core.Models;
 
     public class BlogPost
+        : IContent
     {
         public SystemProperties Sys { get; set; } = new SystemProperties();
         public string Date { get; set; } = string.Empty;
