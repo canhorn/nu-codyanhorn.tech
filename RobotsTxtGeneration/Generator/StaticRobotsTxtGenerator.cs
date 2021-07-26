@@ -30,6 +30,14 @@
             SiteConfig siteConfig
         )
         {
+            if (siteConfig.Site.DisallowRobotsAccess)
+            {
+                return @"
+User-agent: *
+Disallow: /
+";
+            }
+
             var siteurl = siteConfig.SITE_URL;
             return $@"
 # *

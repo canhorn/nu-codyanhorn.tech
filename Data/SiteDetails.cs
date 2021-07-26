@@ -7,5 +7,6 @@
         public string Domain { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string FeedDescription { get; set; } = string.Empty;
+        public bool DisallowRobotsAccess { get; set; }
     }
 }
