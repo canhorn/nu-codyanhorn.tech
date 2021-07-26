@@ -29,6 +29,16 @@
 
         protected override async Task OnInitializedAsync()
         {
+            await Setup();
+        }
+
+        protected override async Task OnParametersSetAsync()
+        {
+            await Setup();
+        }
+
+        private async Task Setup()
+        {
             var result = await ContentfulApi.GetPageContentBySlug(
                 Config.PageMeta.BlogIndex.Slug
             );
