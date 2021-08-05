@@ -1,0 +1,29 @@
+@page "/contact"
+@inherits ContactBase
+
+<HeroBanner Data="PageContent.HeroBanner" />
+
+<ContentWrapper>
+    @if (PageContent is not null)
+    {
+        @if (PageContent.Title.IsNotNullOrWhitespace())
+        {
+            <h1>@PageContent.Title</h1>
+        }
+
+        @if (PageContent.Description.IsNotNullOrWhitespace())
+        {
+            <p>
+                @PageContent.Description
+            </p>
+        }
+        @if (PageContent.Body is not null)
+        {
+            <PageContentWrapper>
+                <RichTextPageContent Body="PageContent.Body" />
+            </PageContentWrapper>
+        }
+    }
+</ContentWrapper>
+
+
