@@ -18,6 +18,7 @@
         public ContentfulHtmlRenderer Renderer { get; set; } = null!;
 
         public string Content { get; set; } = string.Empty;
+        private bool _triggerHighlight;
 
         protected override async Task OnInitializedAsync()
         {
@@ -31,11 +32,14 @@
 
         protected override async Task OnAfterRenderAsync(bool firstRender)
         {
-            if (firstRender)
+            if (firstRender 
+                || _triggerHighlight
+            )
             {
                 await JSRuntime.InvokeVoidAsync(
                     "Prisim_highlightAll"
                 );
+                _triggerHighlight = false;
             }
         }
 
@@ -46,6 +50,7 @@
                 Content = await Renderer.Render(
                     Body
                 );
+                _triggerHighlight = true;
             }
         }
     }
