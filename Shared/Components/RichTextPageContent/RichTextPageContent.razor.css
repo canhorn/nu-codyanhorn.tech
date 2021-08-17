@@ -185,6 +185,18 @@
             box-shadow: unset;
         }
 
+.rich-text ::deep img {
+    width: 100%;
+    box-shadow: black 0.5rem 0.5rem 1rem;
+    border: white solid 1px;
+}
+
+.rich-text ::deep iframe {
+    width: 100%;
+    box-shadow: black 0 0.4rem 1rem 0.1rem;
+    border: none;
+}
+
 /* Language Specific Styles Tweaks */
 .rich-text ::deep pre.code-block .operator {
     background: initial;
