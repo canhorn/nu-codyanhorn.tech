@@ -13,6 +13,8 @@
             string slug
         );
 
+        Task<IEnumerable<PageContent>> GetNonPlatformContentPages();
+
         Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedBlogPosts(
             int page
         );

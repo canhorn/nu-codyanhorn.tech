@@ -22,6 +22,7 @@
         private static readonly ConcurrentDictionary<string, (int Total, IEnumerable<BlogPost> Items)> GetPaginatedSlugsCache = new();
         private static readonly ConcurrentDictionary<string, BlogPost> GetPostBySlugCache = new();
         public ConcurrentBag<BlogPost> GetAllCachedBlogPostsCache = new();
+        private readonly ConcurrentBag<PageContent> GetNonPlatformContentPagesCache = new();
 
         private readonly ILogger<SdkContentfulApi> _logger;
         private readonly IContentfulClient _client;
@@ -47,6 +48,7 @@
             GetPaginatedSlugsCache.Clear();
             GetPostBySlugCache.Clear();
             GetAllCachedBlogPostsCache.Clear();
+            GetNonPlatformContentPagesCache.Clear();
 
             return Task.FromResult(true);
         }
@@ -102,7 +104,8 @@
                         )
                     );
 
-                    shouldQueryMoreSlugs = slugList.Count < Total;
+                    shouldQueryMoreSlugs = slugList.Count <= Total;
+                    page++;
                 }
 
 
@@ -166,6 +169,48 @@
                     slug
                 );
                 return null;
+            }
+        }
+
+        public async Task<IEnumerable<PageContent>> GetNonPlatformContentPages()
+        {
+            try
+            {
+                if (GetNonPlatformContentPagesCache.Any())
+                {
+                    return GetNonPlatformContentPagesCache.AsEnumerable();
+                }
+
+                // Not found in Cache, do SDK lookup
+                var queryBuilder = QueryBuilder<PageContent>.New
+                    .ContentTypeIs("pageContent")
+                    .FieldEquals(f => f.IsPlatformPage, "false")
+                    .Include(5);
+
+                var result = await _client.GetEntries(
+                    queryBuilder
+                );
+
+                var pageContentList = result.Items;
+                foreach (var pageContent in pageContentList)
+                {
+                    // Was a Valid Fetch, cache it for later.
+                    GetPageContentBySlugCache.AddOrUpdate(
+                        pageContent.Slug,
+                        pageContent,
+                        (_, _) => pageContent
+                    );
+                }
+
+                return pageContentList;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(
+                    ex,
+                    "Failed to get Non-Platform Page Content List"
+                );
+                return new List<PageContent>();
             }
         }
 

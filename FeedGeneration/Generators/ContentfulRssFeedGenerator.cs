@@ -95,7 +95,10 @@
                         post.Excerpt
                     ).Replace(
                         "{{POST_SLUG}}",
-                        post.Slug
+                        BlogPost.GenerateSlug(
+                            _siteConfig.PageMeta.BlogIndex.Slug,
+                            post.Slug
+                        )
                     ).Replace(
                         "{{POST_DATE}}",
                         post.Date
@@ -168,7 +171,7 @@
     <channel>
       <title>{{SITE_TITLE}}</title>
       <atom:link href=""https://{{SITE_DOMAIN}}/feed.xml"" rel=""self"" type=""application/rss+xml"" />
-      <link>https://{{SITE_DOMAIN}}</link>
+      <link>{{SITE_DOMAIN}}</link>
       <description>{{FEED_DESCRIPTION}}</description>
       {{RSS_ITEMS}}
     </channel>
@@ -179,8 +182,8 @@
     <title><![CDATA[{{POST_TITLE}}]]></title>
     <description><![CDATA[{{POST_EXCERPT}}]]></description>
     <author>{{AUTHOR_EMAIL}} ({{AUTHOR_NAME}})</author>
-    <link>https://{{SITE_DOMAIN}}/blog/{{POST_SLUG}}</link>
-    <guid>https://{{SITE_DOMAIN}}/blog/{{POST_SLUG}}</guid>
+    <link>{{SITE_DOMAIN}}{{POST_SLUG}}</link>
+    <guid>{{SITE_DOMAIN}}{{POST_SLUG}}</guid>
     <pubDate>{{POST_DATE}}</pubDate>
     {{POST_TAGS}}
     {{POST_CONTENT}}

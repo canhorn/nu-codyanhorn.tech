@@ -66,7 +66,7 @@
                 .Title(_siteConfig.Site.Title)
                 .Link(
                     "alterntive",
-                    $"https://{_siteConfig.Site.Domain}/feed.xml",
+                    $"{_siteConfig.Site.Domain}/feed.xml",
                     localizer["RSS Feed for {0}", _siteConfig.Site.Domain]!
                         ?? $"RSS Feed For {_siteConfig.Site.Domain}",
                     "application/rss+xml"
@@ -134,6 +134,28 @@
                 var pageDescription = indexPageContent.Description.IsNotNullOrWhitespace()
                     ? indexPageContent.Description
                     : localizer["Welcome to the Blazor Contentful blog Starter"]!;
+
+                BuildPage(
+                    slug,
+                    _siteConfig.Site.Title,
+                    pageTitle,
+                    pageDescription,
+                    _siteConfig.GetSiteUrl(slug)
+                );
+            }
+
+
+            var contentPageResults = await _api.GetNonPlatformContentPages();
+            foreach (var pageContent in contentPageResults)
+            {
+                var slug = pageContent.Slug;
+                var indexPageContent = pageContent;
+                var pageTitle = indexPageContent.Title.IsNotNullOrWhitespace()
+                    ? indexPageContent.Title
+                    : localizer["Content Page for {0}", slug]!;
+                var pageDescription = indexPageContent.Description.IsNotNullOrWhitespace()
+                    ? indexPageContent.Description
+                    : localizer["Welcome to the Cody's Personal Site"]!;
 
                 BuildPage(
                     slug,

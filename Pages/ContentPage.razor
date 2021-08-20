@@ -1,0 +1,24 @@
+@page "/{type}/{identifier}"
+@inherits ContentPageBase
+
+<HeroBanner Data="PageContent.HeroBanner" />
+
+<ContentWrapper>
+    @if (PageContent is not null)
+    {
+        <PageContentWrapper>
+            @if (PageContent.Body is not null)
+            {
+
+                <RichTextPageContent Body="PageContent.Body" />
+            }
+
+            @if (PageContent.MarkdownBody is not null)
+            {
+                <BlazorMarkdown Markdown="@PageContent.MarkdownBody" />
+            }
+        </PageContentWrapper>
+    }
+</ContentWrapper>
+
+

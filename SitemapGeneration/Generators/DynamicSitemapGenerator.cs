@@ -5,6 +5,7 @@
     using System.Text;
     using System.Threading.Tasks;
     using CodyAnhorn.Tech.ContentfulSdk.Api;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Blog;
     using CodyAnhorn.Tech.Data;
     using CodyAnhorn.Tech.SitemapGeneration.Api;
     using Microsoft.Extensions.Options;
@@ -54,6 +55,14 @@
             var body = new StringBuilder();
             var urlTemplate = "<url><loc>{{LOC}}</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>{{LASTMOD}}</lastmod></url>";
 
+            string GetLastModified(
+                DateTime? dateTime
+            )
+            {
+                return dateTime?.ToString("yyyy-MM-ddTHH:mm:ssK")
+                    ?? DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssK");
+            }
+
             // Add Home Page
             body.Append(
                 urlTemplate.Replace(
@@ -64,6 +73,7 @@
                     DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssK")
                 )
             );
+
             // Add Blog Index Page
             body.Append(
                 urlTemplate.Replace(
@@ -75,18 +85,41 @@
                 )
             );
 
-            // Add Blog Posts
-            var blogPostSlugs = await _contentfulApi.GetAllPostSlugs();
-
-            foreach (var blogPostSlug in blogPostSlugs)
+            // Add All non-platform content pages
+            var contentPageResults = await _contentfulApi.GetNonPlatformContentPages();
+            foreach (var pageContent in contentPageResults)
             {
                 body.Append(
                     urlTemplate.Replace(
                         "{{LOC}}",
-                        $"{_siteConfig.GetSiteUrl(_siteConfig.PageMeta.BlogIndex.Url)}/{blogPostSlug}"
+                        $"{_siteConfig.GetSiteUrl(pageContent.Slug)}"
                     ).Replace(
                         "{{LASTMOD}}",
-                        DateTimeOffset.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssK")
+                        GetLastModified(
+                            pageContent.Sys.UpdatedAt
+                        )
+                    )
+                );
+            }
+
+            // Add Blog Posts
+            var blogPostSlugs = await _contentfulApi.GetAllBlogPosts();
+            foreach (var blogPost in blogPostSlugs)
+            {
+                var blogPostSlug = blogPost.Slug;
+                var slug = BlogPost.GenerateSlug(
+                    _siteConfig.PageMeta.BlogIndex.Slug,
+                    blogPostSlug
+                );
+                body.Append(
+                    urlTemplate.Replace(
+                        "{{LOC}}",
+                        $"{_siteConfig.GetSiteUrl(slug)}"
+                    ).Replace(
+                        "{{LASTMOD}}",
+                        GetLastModified(
+                            blogPost.Sys.UpdatedAt
+                        )
                     )
                 );
             }

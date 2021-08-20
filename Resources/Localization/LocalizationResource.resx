@@ -180,7 +180,7 @@
   </data>
   <data name="View the RSS feed of {0}" xml:space="preserve">
     <value>View the RSS feed of {0}</value>
-    <comment>{0} is thet SiteConfig.Site.Domain.</comment>
+    <comment>{0} is the SiteConfig.Site.Domain.</comment>
   </data>
   <data name="Website" xml:space="preserve">
     <value>Website</value>
