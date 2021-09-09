@@ -344,6 +344,10 @@ ul {
     margin-bottom: 2rem;
 }
 
+pre {
+    overflow: hidden;
+}
+
 .blazor-markdown pre[class*=language-],
 .blazor-markdown img {
     margin-bottom: 2rem;
