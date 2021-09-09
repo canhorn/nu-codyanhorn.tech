@@ -2,8 +2,16 @@
 @namespace CodyAnhorn.Tech.Pages
 @addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
 @using EventHorizon.Blazor.DocumentMetadata.Components
+@using Microsoft.Net.Http.Headers
+@using System.Text.RegularExpressions
 @{
     Layout = null;
+    var userAgent = Request.Headers[HeaderNames.UserAgent];
+    var isNotBotAgent = !Regex.IsMatch(
+        userAgent,
+        @"bot|crawler|baiduspider|80legs|ia_archiver|voyager|curl|wget|yahoo! slurp|mediapartners-google",
+        RegexOptions.IgnoreCase
+    );
 }
 
 <!DOCTYPE html>
@@ -56,68 +64,59 @@
 <body>
     <component type="typeof(App)" render-mode="ServerPrerendered" />
 
-    <div id="blazor-error-ui">
-        <environment include="Staging,Production">
-            An error has occurred. This application may no longer respond until reloaded.
-        </environment>
-        <environment include="Development">
-            An unhandled exception has occurred. See browser dev tools for details.
-        </environment>
-        <a href="#" class="reload" rel="nofollow">Reload</a>
-        <a class="dismiss" href="#" rel="nofollow">🗙</a>
-    </div>
-
-    <script src="_framework/blazor.server.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"
+    @if (isNotBotAgent)
+    {
+        <script src="_framework/blazor.server.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/components/prism-core.min.js"
             integrity="sha512-xR+IAyN+t9EBIOOJw5m83FTVMDsPd63IhJ3ElP4gmfUFnQlX9+eWGLp3P4t3gIjpo2Z1JzqtW/5cjgn+oru3yQ=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"
             integrity="sha512-zc7WDnCM3aom2EziyDIRAtQg1mVXLdILE09Bo+aE1xk0AM2c2cVLfSW9NrxE5tKTX44WBY0Z2HClZ05ur9vB6A=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/toolbar/prism-toolbar.min.js"
             integrity="sha512-YrvgEHAi5/3o2OT+/vh1z19oJXk/Kk0qdVKbjEFl9VRmcLTaWRYzVziZCvoGpJ2TrnV7rB8pnJcz1ioVJjgw2A=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"
             integrity="sha512-pUNGXbOrc+Y3dm5z2ZN7JYQ/2Tq0jppMDOUsN4sQHVJ9AUQpaeERCUfYYBAnaRB9r8d4gtPKMWICNhm3tRr4Fg=="
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
 
-    <script src="https://cdn.staticaly.com/gh/malchata/yall.js/master/dist/yall.min.js"></script>
-    <script>
-        window.Prism = window.Prism || {};
-        window.Prism.manual = true;
+        <script src="https://cdn.staticaly.com/gh/malchata/yall.js/master/dist/yall.min.js"></script>
+        <script>
+            window.Prism = window.Prism || {};
+            window.Prism.manual = true;
 
-        function Prisim_highlightAll() {
-            Prism.highlightAll();
-        }
-        document.addEventListener("DOMContentLoaded", function () {
-            yall({
-                observeChanges: true
-            });
-        });
-
-        // Scoll into view takes an element id and moves the page to it.
-        function scrollIntoView(elementId) {
-            var elem = document.getElementById(elementId);
-            if (elem) {
-                elem.scrollIntoView();
-                window.location.hash = elementId;
+            function Prisim_highlightAll() {
+                Prism.highlightAll();
             }
-        }
+            document.addEventListener("DOMContentLoaded", function () {
+                yall({
+                    observeChanges: true
+                });
+            });
 
-        // Used for on page anchor scrolling
-        function delayedScrollIntoView(elementId) {
-            setTimeout(function () { scrollIntoView(elementId); }, 0);
-            return false;
-        }
-        window.addEventListener("load", function () {
-            delayedScrollIntoView(window.location.hash.substring(1));
-        });
-    </script>
+            // Scroll into view takes an element id and moves the page to it.
+            function scrollIntoView(elementId) {
+                var elem = document.getElementById(elementId);
+                if (elem) {
+                    elem.scrollIntoView();
+                    window.location.hash = elementId;
+                }
+            }
 
+            // Used for on page anchor scrolling
+            function delayedScrollIntoView(elementId) {
+                setTimeout(function () { scrollIntoView(elementId); }, 0);
+                return false;
+            }
+            window.addEventListener("load", function () {
+                delayedScrollIntoView(window.location.hash.substring(1));
+            });
+        </script>
+    }
     <partial name="Analytics/BodyAnalytics" />
 
 </body>
