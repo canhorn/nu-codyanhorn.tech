@@ -340,10 +340,6 @@ img {
         transition: box-shadow .2s ease 0s;
     }
 
-ul {
-    margin-bottom: 2rem;
-}
-
 pre {
     overflow: hidden;
 }

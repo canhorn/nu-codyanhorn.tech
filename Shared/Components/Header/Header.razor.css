@@ -7,7 +7,6 @@
     display: flex;
     justify-content: center;
     background-color: var(--color-foreground);
-    padding: 1rem;
 }
 
 ::deep .header__logo-container-link {
@@ -30,20 +29,20 @@
 
 .header__logo {
     height: 4rem;
-    margin: 0 1rem;
+    margin: 0 0.3rem;
 }
 
 .header__nav {
     display: flex;
     justify-content: center;
     background-color: var(--color-foreground);
-    padding: 0.5rem 1rem;
+    padding: 0 1rem;
     border-bottom: 0.5rem solid var(--color-tertiary);
 }
 
 .header__nav-list {
     list-style: none;
-    padding: 0;
+    padding: 0.3rem 0;
 }
 
 .header__nav-list-item {
