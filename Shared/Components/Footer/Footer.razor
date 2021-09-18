@@ -3,11 +3,17 @@
 <footer class="footer">
     <SocialLinks FillColor="#b7ded0" />
     <p class="footer__copyright">
-        @Localizer["© {0} | {1} All Rights Reserved.", Config.Site.Owner, DateTime.Now.Year]
+        <span class="copyright__owner" title="@Localizer["{0} All Rights Reserved", DateTime.Now.Year]">
+            @Localizer["© {0}", Config.Site.Owner]
+        </span>
     </p>
-    <div class="footer__privacy-policy">
+    <div class="footer__links">
         <a class="footer__privacy-policy --link" href="@Config.PageMeta.PrivacyPolicy.Url">
             @Localizer["Privacy Policy"]
+        </a>
+        <span class="footer__spacer"></span>
+        <a class="footer__contact --link" href="@Config.PageMeta.Contact.Url">
+            @Localizer["Contact Me"]
         </a>
     </div>
 </footer>
