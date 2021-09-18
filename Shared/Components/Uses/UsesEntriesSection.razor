@@ -1,0 +1,18 @@
+﻿@inherits UsesEntriesSectionBase
+
+<section class="uses-entries__section">
+    @foreach (var usesEntry in UsesEntries.OrderBy(a => a.Name))
+    {
+        <div class="uses-entry">
+            <h2 class="uses-entry__name">
+                @usesEntry.Name
+            </h2>
+            <div class="uses-entry__tags">
+                <Tags TagList="usesEntry.Categories" />
+            </div>
+            <div class="uses-entry__description">
+                <RichTextPageContent Body="usesEntry.Description" />
+            </div>
+        </div>
+    }
+</section>

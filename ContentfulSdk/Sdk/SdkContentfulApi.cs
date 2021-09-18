@@ -14,7 +14,7 @@
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
 
-    public class SdkContentfulApi
+    public partial class SdkContentfulApi
         : ContentfulApi
     {
         private static readonly ConcurrentDictionary<string, PageContent> GetPageContentBySlugCache = new();
@@ -49,6 +49,7 @@
             GetPostBySlugCache.Clear();
             GetAllCachedBlogPostsCache.Clear();
             GetNonPlatformContentPagesCache.Clear();
+            UsesEntryCache.Clear();
 
             return Task.FromResult(true);
         }

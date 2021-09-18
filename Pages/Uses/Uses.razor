@@ -1,4 +1,5 @@
 @page "/uses"
+@using CodyAnhorn.Tech.Shared.Components.Uses
 @inherits UsesBase
 
 <HeroBanner Data="PageContent.HeroBanner" />
@@ -6,34 +7,35 @@
 <ContentWrapper>
     @if (PageContent is not null)
     {
-        @if (PageContent.Title.IsNotNullOrWhitespace())
-        {
-            <h1>@PageContent.Title</h1>
-        }
+        <PageContentWrapper>
+            @if (PageContent.Title.IsNotNullOrWhitespace())
+            {
+                <h1>@PageContent.Title</h1>
+            }
 
-        @if (PageContent.Description.IsNotNullOrWhitespace())
-        {
-            <p>
-                @PageContent.Description
-            </p>
-        }
-        @if (PageContent.Sys?.UpdatedAt?.ToString().IsNotNullOrWhitespace() ?? false)
-        {
-            <div class="uses__last-updated --bold">
-            <p class="last-updated__text">
-                @Localizer["Last Updated:"]
-            </p>
-            <PublishedDate Date="@PageContent.Sys.UpdatedAt.ToString()" />
-            </div>
-        }
+            @if (PageContent.Description.IsNotNullOrWhitespace())
+            {
+                <p>
+                    @PageContent.Description
+                </p>
+            }
+            @if (PageContent.Sys?.UpdatedAt?.ToString().IsNotNullOrWhitespace() ?? false)
+            {
+                <div class="uses__last-updated --bold">
+                    <p class="last-updated__text">
+                        @Localizer["Last Updated:"]
+                        <PublishedDate Date="@PageContent.Sys.UpdatedAt.ToString()" />
+                    </p>
+                </div>
+            }
 
-        @if (PageContent.Body is not null)
-        {
-            <PageContentWrapper>
+            @if (PageContent.Body is not null)
+            {
                 <RichTextPageContent Body="PageContent.Body" />
-            </PageContentWrapper>
-        }
+            }
+        </PageContentWrapper>
     }
+    <UsesEntriesSection UsesEntries="UsesEntries" />
 </ContentWrapper>
 
 

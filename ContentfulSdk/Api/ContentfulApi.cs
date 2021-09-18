@@ -5,6 +5,7 @@
     using CodyAnhorn.Tech.CacheBusting.Api;
     using CodyAnhorn.Tech.ContentfulSdk.Model.Blog;
     using CodyAnhorn.Tech.ContentfulSdk.Model.Page;
+    using CodyAnhorn.Tech.ContentfulSdk.Model.Uses;
 
     public interface ContentfulApi
         : BustCache
@@ -14,6 +15,8 @@
         );
 
         Task<IEnumerable<PageContent>> GetNonPlatformContentPages();
+
+        Task<IEnumerable<UsesEntry>> GetAllUsesEntries();
 
         Task<(int Total, IEnumerable<BlogPost> Items)> GetPaginatedBlogPosts(
             int page
