@@ -12,4 +12,9 @@
     {
         MarkdownHtml = Markdig.Markdown.ToHtml(Markdown ?? string.Empty);
     }
+
+    protected override void OnParametersSet()
+    {
+        MarkdownHtml = Markdig.Markdown.ToHtml(Markdown ?? string.Empty);
+    }
 }
