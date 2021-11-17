@@ -1,9 +1,11 @@
 ﻿#pragma warning disable CA1050 // Declare types in namespaces
+using System.Diagnostics.CodeAnalysis;
+
 public static class StringExtensions
 #pragma warning restore CA1050 // Declare types in namespaces
 {
     public static bool IsNullOrWhitespace(
-        this string str
+        [NotNullWhen(false)] this string? str
     )
     {
         return string.IsNullOrWhiteSpace(
@@ -12,7 +14,7 @@ public static class StringExtensions
     }
 
     public static bool IsNotNullOrWhitespace(
-        this string str
+        [NotNullWhen(true)] this string? str
     )
     {
         return !string.IsNullOrWhiteSpace(

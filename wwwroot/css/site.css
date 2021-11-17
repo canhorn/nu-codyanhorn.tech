@@ -342,6 +342,9 @@ img {
 
 pre {
     overflow: hidden;
+    background-color: #272822;
+    padding: 0.3rem;
+    border-radius: 1%;
 }
 
 .blazor-markdown pre[class*=language-],
