@@ -42,6 +42,7 @@ namespace CodyAnhorn.Tech
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddResponseCompression();
 
 
             services.AddTransient<PageMetadataGenerator, StaticPageMetadataGenerator>()
@@ -115,6 +116,7 @@ namespace CodyAnhorn.Tech
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseDocumentMetadata();
+            app.UseResponseCompression();
 
             if (env.IsDevelopment())
             {
