@@ -144,6 +144,30 @@
                 );
             }
 
+            // Add Uses Page
+            var usesResult = await _api.GetPageContentBySlug(
+                _siteConfig.PageMeta.UsesIndex.Slug
+            );
+            if (usesResult is not null)
+            {
+                var slug = _siteConfig.PageMeta.UsesIndex.Slug;
+                var indexPageContent = usesResult;
+                var pageTitle = usesResult.Title.IsNotNullOrWhitespace()
+                    ? indexPageContent.Title
+                    : localizer["Uses"]!;
+                var pageDescription = indexPageContent.Description.IsNotNullOrWhitespace()
+                    ? indexPageContent.Description
+                    : localizer["Checkout the all the Technology Cody uses!"]!;
+
+                BuildPage(
+                    slug,
+                    _siteConfig.Site.Title,
+                    pageTitle,
+                    pageDescription,
+                    _siteConfig.GetSiteUrl(slug)
+                );
+            }
+
 
             var contentPageResults = await _api.GetNonPlatformContentPages();
             foreach (var pageContent in contentPageResults)
