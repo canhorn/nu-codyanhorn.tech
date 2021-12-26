@@ -1,5 +1,7 @@
 ﻿namespace CodyAnhorn.Tech.ContentfulSdk.Renderer
 {
+    using System.Linq;
+    using System.Text;
     using System.Threading.Tasks;
     using CodyAnhorn.Tech.ContentfulSdk.Model.Page;
     using CodyAnhorn.Tech.ContentfulSdk.Renderer.Renderers;
@@ -23,6 +25,13 @@
             );
             _renderer.AddRenderer(
                 new ContentfulLazyImageRender()
+            );
+            _renderer.AddRenderer(
+                // Run this one first to not encode the HTML in text.
+                new TextRenderer(htmlEncodeOutput: false)
+                {
+                    Order = 50,
+                }
             );
         }
 
