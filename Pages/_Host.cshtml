@@ -84,7 +84,6 @@
             crossorigin="anonymous"
             referrerpolicy="no-referrer"></script>
 
-        <script src="https://cdn.staticaly.com/gh/malchata/yall.js/master/dist/yall.min.js"></script>
         <script>
             window.Prism = window.Prism || {};
             window.Prism.manual = true;
@@ -92,11 +91,6 @@
             function Prisim_highlightAll() {
                 Prism.highlightAll();
             }
-            document.addEventListener("DOMContentLoaded", function () {
-                yall({
-                    observeChanges: true
-                });
-            });
 
             // Scroll into view takes an element id and moves the page to it.
             function scrollIntoView(elementId) {

@@ -4,14 +4,9 @@
     using System.Threading.Tasks;
     using Contentful.Core.Models;
 
-    public class ContentfulLazyImageRender
-        : IContentRenderer
+    public class ContentfulLazyImageRender : IContentRenderer
     {
-        public int Order
-        {
-            get;
-            set;
-        } = 50;
+        public int Order { get; set; } = 50;
 
         public bool SupportsContent(IContent content)
         {
@@ -33,15 +28,24 @@
             var target = assetStructure?.Data.Target;
             var nodeType = assetStructure?.NodeType;
             var stringBuilder = new StringBuilder();
-            if (nodeType != "asset-hyperlink" 
-                && target?.File?.ContentType != null 
+            if (
+                nodeType != "asset-hyperlink"
+                && target?.File?.ContentType != null
                 && target.File.ContentType.ToLower().Contains("image")
             )
             {
-                stringBuilder.Append("<img class=\"lazy\" src=\"/images/placeholder-image.png\" data-src=\"" + target.File.Url + "\" alt=\"" + target.Title + "\" ");
+                stringBuilder.Append(
+                    "<img loading=\"lazy\" src=\""
+                        + target.File.Url
+                        + "\" alt=\""
+                        + target.Title
+                        + "\" "
+                );
 
                 stringBuilder.Append(" data-srcset=\"");
-                stringBuilder.Append(ContentfulImageSourceSetGeneration.CreateSourceSet(target.File.Url, "75"));
+                stringBuilder.Append(
+                    ContentfulImageSourceSetGeneration.CreateSourceSet(target.File.Url, "75")
+                );
                 stringBuilder.Append('"');
 
                 stringBuilder.Append(" />");
